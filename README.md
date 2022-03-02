@@ -23,6 +23,12 @@
 ## 設計書
 <...>
 
+##　WBS手順チェックシート
+https://docs.google.com/spreadsheets/d/1xSpjXNpLe5ek56iH7FKfikw9feyCP8HRSQxsKCAYhIc/edit#gid=1773513600
+
+## ER図
+https://app.diagrams.net/#G1MwotJYpFyRENvB-qyzH40DlXyDerESXr
+
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1dbJd10HC8ISSH1CP0cFhbHv-TIjavw_x41WkkHzGnCA/edit#gid=0
 
