@@ -1,4 +1,4 @@
-。# Favo Place
+# Favo Place
 
 ## サイト概要
 お気に入りのスポットを投稿するSNSサイトです。
