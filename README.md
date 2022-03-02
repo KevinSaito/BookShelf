@@ -23,7 +23,7 @@
 ## 設計書
 <...>
 
-##　WBS手順チェックシート
+## WBS手順チェックシート
 https://docs.google.com/spreadsheets/d/1xSpjXNpLe5ek56iH7FKfikw9feyCP8HRSQxsKCAYhIc/edit#gid=1773513600
 
 ## ER図
