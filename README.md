@@ -21,9 +21,11 @@
 自身のお気に入りを投稿して共感してほしい時。
 他者のお気に入りのスポットを見て、共感したり、コメントしたりしたい時。
 
-## 設計書
-アプリケーション詳細設計:https://docs.google.com/spreadsheets/d/19PNXjTjN5pS1kf6WppLr0OwyKubTKHx_LY0bKpVaaDs/edit#gid=2133469642
-テーブル定義書:https://docs.google.com/spreadsheets/d/1BzQ7LnU5KdFNmPiLqErkAi5AJPyzWWGI/edit#gid=634542038
+## アプリケーション詳細設計書
+https://docs.google.com/spreadsheets/d/19PNXjTjN5pS1kf6WppLr0OwyKubTKHx_LY0bKpVaaDs/edit#gid=2133469642
+
+## テーブル定義書
+https://docs.google.com/spreadsheets/d/1BzQ7LnU5KdFNmPiLqErkAi5AJPyzWWGI/edit#gid=634542038
 
 ## WBS手順チェックシート
 https://docs.google.com/spreadsheets/d/1xSpjXNpLe5ek56iH7FKfikw9feyCP8HRSQxsKCAYhIc/edit#gid=1773513600
