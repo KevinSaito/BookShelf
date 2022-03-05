@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to:'public/homes#top'
-  
+
   #ユーザー用
   devise_for :users, controllers: {
   registrations: "public/registrations",

@@ -2,7 +2,7 @@ class Public::FavoImagesController < ApplicationController
   def new
     @favo_image = FavoImage.new
   end
-  
+
   def create
     @favo_iamge = FavoImage.new(favo_iamge_params)
     @favo_iamge.user_id = current_user.id
@@ -15,13 +15,14 @@ class Public::FavoImagesController < ApplicationController
   end
 
   def show
+    @favo_image = FavoImage.find(params[:id])
   end
 
   def edit
   end
-  
+
   private
-  
+
   def favo_iamge_params
     params.require(:favo_iamge).permit(:location, :caption, :image)
   end

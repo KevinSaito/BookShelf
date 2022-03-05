@@ -1,2 +1,9 @@
-<h1>Public::FavoImages#show</h1>
-<p>Find me in app/views/public/favo_images/show.html.erb</p>
+<h1>投稿詳細画面</h1>
+  <div>
+    <%= image_tag @favo_iamge.get_iamge %>
+    <p>投稿ユーザー画像：</p>
+    <p>場所：<%= @favo_iamge.location %></p>
+    <p>説明：<%= @favo_image.caption %></p>
+    <p>ユーザーネーム：<%= @favo_image.user.name %></p>
+    <p>投稿日：<%= @favo_iamge.created_at.strftime('%Y/%m/%d') %></p>
+  </div>
