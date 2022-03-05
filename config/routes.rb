@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   root to:'public/homes#top'
   
-  #顧客用
+  #ユーザー用
   devise_for :users, controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
 
-  #顧客側
+  #ユーザー側
   scope module: :public do
     get 'homes/top'
     get 'homes/about'
