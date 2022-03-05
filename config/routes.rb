@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 }
 
   #顧客側
-  namespace :public do
+  scope module: :public do
     get 'homes/top'
     get 'homes/about'
   end
