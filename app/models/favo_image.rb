@@ -1,0 +1,2 @@
+class FavoImage < ApplicationRecord
+end
