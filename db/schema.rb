@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_06_081720) do
+ActiveRecord::Schema.define(version: 2022_03_06_101922) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 2022_03_06_081720) do
     t.index ["user_id"], name: "index_favo_images_on_user_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "favo_image_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["favo_image_id"], name: "index_favorites_on_favo_image_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -78,4 +87,6 @@ ActiveRecord::Schema.define(version: 2022_03_06_081720) do
   add_foreign_key "favo_comments", "favo_images"
   add_foreign_key "favo_comments", "users"
   add_foreign_key "favo_images", "users"
+  add_foreign_key "favorites", "favo_images"
+  add_foreign_key "favorites", "users"
 end

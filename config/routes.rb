@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'homes/about'
     resources :favo_images do
+      resource :favorites, only:[:create, :destroy]
       resources :favo_comments, only:[:create, :destroy]
     end
     resources :users
