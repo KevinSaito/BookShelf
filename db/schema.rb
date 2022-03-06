@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_05_071639) do
+ActiveRecord::Schema.define(version: 2022_03_06_081720) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2022_03_05_071639) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "favo_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "favo_image_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["favo_image_id"], name: "index_favo_comments_on_favo_image_id"
+    t.index ["user_id"], name: "index_favo_comments_on_user_id"
+  end
+
   create_table "favo_images", force: :cascade do |t|
     t.string "location"
     t.text "caption"
@@ -65,5 +75,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_071639) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favo_comments", "favo_images"
+  add_foreign_key "favo_comments", "users"
   add_foreign_key "favo_images", "users"
 end

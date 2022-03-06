@@ -2,6 +2,7 @@ class FavoImage < ApplicationRecord
   has_one_attached :image
   #validates :image, presence: true
   belongs_to :user
+  has_many :favo_comments, dependent: :destroy
 
   def get_image(width, height)
   unless image.attached?
