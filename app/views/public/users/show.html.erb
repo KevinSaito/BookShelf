@@ -1,2 +1,20 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<!-- ユーザーの詳細 -->
+<div>
+  <h3><%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <%= link_to "Edit Profile", edit_user_path(@user.id) %>
+</div>
+
+<!-- ユーザーの投稿一覧 -->
+
+<% @favo_images.each do |favo_image| %>
+<div>
+  <%= link_to favo_image_path(favo_image.id) do %>
+    <%= image_tag favo_image.get_image(200,200) %>
+  <% end %>
+  <p>投稿ユーザー画像：<%= image_tag favo_image.user.get_profile_image(100,100) %></p>
+  <p>場所：<%= favo_image.location %></p>
+  <p>説明：<%= favo_image.caption %></p>
+  <p>ユーザーネーム：<%= favo_image.user.name %></p>
+</div>
+<% end %>

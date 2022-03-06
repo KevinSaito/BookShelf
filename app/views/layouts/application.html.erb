@@ -14,7 +14,10 @@
     <header>
       <% if user_signed_in? %>
         <li>
-          <%= link_to 'Favo Image', new_favo_image_path %>
+          <%= link_to "Favo Image", new_favo_image_path %>
+        </li>
+        <li>
+          <%= link_to "My Page", user_path(current_user.id) %>
         </li>
         <li>
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>

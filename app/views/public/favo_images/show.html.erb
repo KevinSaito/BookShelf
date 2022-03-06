@@ -1,12 +1,12 @@
 <h1>投稿詳細画面</h1>
   <div>
-    <%= image_tag @favo_iamge.get_iamge %>
-    <p>投稿ユーザー画像：<%#= @favo_image.user.get_profile_image %></p>
-    <p>場所：<%= @favo_iamge.location %></p>
+    <%= image_tag @favo_image.get_image(200,200) %>
+    <p>投稿ユーザー画像：<%=image_tag @favo_image.user.get_profile_image(100,100) %></p>
+    <p>場所：<%= @favo_image.location %></p>
     <p>説明：<%= @favo_image.caption %></p>
     <p>ユーザーネーム：<%= @favo_image.user.name %></p>
-    <p>投稿日：<%= @favo_iamge.created_at.strftime('%Y/%m/%d') %></p>
-    <% if @favo_iamge.user_id == current_user.id %>
-      <%= link_to "削除", favo_iamge_path(@favo_image.id), method: :delete %>
+    <p>投稿日：<%= @favo_image.created_at.strftime('%Y/%m/%d') %></p>
+    <% if @favo_image.user_id == current_user.id %>
+      <%= link_to "削除", favo_image_path(@favo_image.id), method: :delete %>
     <% end %>
   </div>

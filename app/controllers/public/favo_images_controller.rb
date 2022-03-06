@@ -4,10 +4,10 @@ class Public::FavoImagesController < ApplicationController
   end
 
   def create
-    @favo_iamge = FavoImage.new(favo_iamge_params)
-    @favo_iamge.user_id = current_user.id
+    @favo_image = FavoImage.new(favo_image_params)
+    @favo_image.user_id = current_user.id
     @favo_image.save
-    redirect_to favo_iamges_path
+    redirect_to favo_images_path
   end
 
   def index
@@ -20,16 +20,16 @@ class Public::FavoImagesController < ApplicationController
 
   def edit
   end
-  
+
   def destroy
     @favo_image = FavoImage.find(params[:id])
     @favo_image.destroy
-    redirect_to favo_images
+    redirect_to favo_images_path
   end
 
   private
 
-  def favo_iamge_params
-    params.require(:favo_iamge).permit(:location, :caption, :image)
+  def favo_image_params
+    params.require(:favo_image).permit(:location, :caption, :image)
   end
 end

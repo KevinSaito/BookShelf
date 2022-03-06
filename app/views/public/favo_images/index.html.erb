@@ -2,10 +2,10 @@
 <% @favo_images.each do |favo_image| %>
   <div>
     <%= link_to favo_image_path(favo_image.id) do %>
-      <%= image_tag favo_iamge.get_iamge %>
+      <%= image_tag favo_image.get_image(200,200) %>
     <% end %>
-    <p>投稿ユーザー画像：</p>
-    <p>場所：<%= favo_iamge.location %></p>
+    <p>投稿ユーザー画像：<%= image_tag favo_image.user.get_profile_image(100,100) %></p>
+    <p>場所：<%= favo_image.location %></p>
     <p>説明：<%= favo_image.caption %></p>
     <p>ユーザーネーム：<%= favo_image.user.name %></p>
   </div>
