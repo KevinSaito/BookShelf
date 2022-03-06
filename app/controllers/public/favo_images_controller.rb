@@ -20,6 +20,12 @@ class Public::FavoImagesController < ApplicationController
 
   def edit
   end
+  
+  def destroy
+    @favo_image = FavoImage.find(params[:id])
+    @favo_image.destroy
+    redirect_to favo_images
+  end
 
   private
 

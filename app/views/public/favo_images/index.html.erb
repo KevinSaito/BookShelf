@@ -1,7 +1,9 @@
 <h1>投稿一覧</h1>
 <% @favo_images.each do |favo_image| %>
   <div>
-    <%= image_tag favo_iamge.get_iamge %>
+    <%= link_to favo_image_path(favo_image.id) do %>
+      <%= image_tag favo_iamge.get_iamge %>
+    <% end %>
     <p>投稿ユーザー画像：</p>
     <p>場所：<%= favo_iamge.location %></p>
     <p>説明：<%= favo_image.caption %></p>
