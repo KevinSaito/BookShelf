@@ -10,3 +10,22 @@
       <%= link_to "削除", favo_image_path(@favo_image.id), method: :delete %>
     <% end %>
   </div>
+  
+  <div>
+    <p>コメント件数:<%= @favo_image.favo_comments.count %></p>
+    <% @favo_image.favo_comments.each do |favo_comment| %>
+      <p><%= image_tag favo_comment.user.get_profile_image(100,100) %></p>
+      <%= favo_comment.user.name %>
+      <%= favo_comment.created_at.strftime('%Y/%m/%d') %><%= favo_comment.comment %>
+      <% if favo_comment.user_id == current_user.id %>
+        <%= link_to "削除", favo_image_favo_comment_path(favo_comment.favo_image, favo_comment), method: :delete %>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= form_with model: [@favo_image, @favo_comment] do |f| %>
+      <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+      <%= f.submit "送信する" %>
+    <% end %>
+  </div>

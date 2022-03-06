@@ -14,7 +14,10 @@
     <header>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "Favo Image", new_favo_image_path %>
+          <%= link_to "Post Favo", new_favo_image_path %>
+        </li>
+        <li>
+          <%= link_to "All Favo Place Check", favo_images_path %>
         </li>
         <li>
           <%= link_to "My Page", user_path(current_user.id) %>

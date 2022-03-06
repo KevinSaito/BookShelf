@@ -16,6 +16,7 @@ class Public::FavoImagesController < ApplicationController
 
   def show
     @favo_image = FavoImage.find(params[:id])
+    @favo_comment = FavoComment.new
   end
 
   def edit
