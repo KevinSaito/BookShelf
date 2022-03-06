@@ -9,8 +9,21 @@
     <% if @favo_image.user_id == current_user.id %>
       <%= link_to "削除", favo_image_path(@favo_image.id), method: :delete %>
     <% end %>
+    <% if @favo_image.favorited_by?(current_user) %>
+    <p>
+      <%= link_to favo_image_favorites_path(@favo_image.id), method: :delete do %>
+        ♥<%= @favo_image.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to favo_image_favorites_path(@favo_image), method: :post do %>
+        ♡<%= @favo_image.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
   </div>
-  
+
   <div>
     <p>コメント件数:<%= @favo_image.favo_comments.count %></p>
     <% @favo_image.favo_comments.each do |favo_comment| %>
@@ -22,7 +35,7 @@
       <% end %>
     <% end %>
   </div>
-  
+
   <div>
     <%= form_with model: [@favo_image, @favo_comment] do |f| %>
       <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
