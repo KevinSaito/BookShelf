@@ -4,6 +4,16 @@
   <%= image_tag @user.get_profile_image(100,100) %>
   <%= link_to "Edit Profile", edit_user_path(@user.id) %>
 </div>
+<!--ここにいいね一覧を表示-->
+<% if @favorite_list.present? %>
+  <% @favorite_list.each do |favo_image| %>
+    <%= link_to favo_image_path(favo_image.id) do %>
+    <%= image_tag favo_image.get_image(100,100) %>
+    <%= favo_image.location %>
+    <% end %>
+  <% end %>
+<% end %>
+
 
 <!-- ユーザーの投稿一覧 -->
 
