@@ -1,2 +1,10 @@
-<h1>Public::FavoImages#edit</h1>
-<p>Find me in app/views/public/favo_images/edit.html.erb</p>
+<h1>編集画面</h1>
+<%= form_with model:@favo_image do |f| %>
+  <p>画像投稿</p>
+  <%= f.file_field :image,accept: "image/*" %>
+  <p>場所</p>
+  <%= f.text_field :location %>
+  <p>説明</p>
+  <%= f.text_area :caption %>
+  <%= f.submit '投稿' %>
+<% end %>
