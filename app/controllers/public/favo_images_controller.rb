@@ -11,7 +11,7 @@ class Public::FavoImagesController < ApplicationController
   end
 
   def index
-    @favo_images = FavoImage.all
+    @favo_images = FavoImage.page(params[:page])
   end
 
   def show
