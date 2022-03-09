@@ -1,0 +1,18 @@
+<h1>ユーザー一覧</h1>
+<!--ユーザー一覧表示-->
+<table>
+  <thead>
+    <tr>
+      <th>ユーザー名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.get_profile_image(70,70) %></td>
+        <td><%=link_to user.name, user_path(user.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</tabale>
+<%= paginate @users %>

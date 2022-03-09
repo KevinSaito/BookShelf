@@ -31,6 +31,6 @@ class Public::FavoImagesController < ApplicationController
   private
 
   def favo_image_params
-    params.require(:favo_image).permit(:location, :caption, :image)
+    params.require(:favo_image).permit(:location, :caption, :image, :user_id)
   end
 end

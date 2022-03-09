@@ -7,6 +7,10 @@ class Public::UsersController < ApplicationController
     @following_users = @user.following_user
     @follower_users = @user.follower_user
   end
+  
+  def index
+    @users = User.page(params[:page])
+  end
 
   def edit
     @user = User.find(params[:id])

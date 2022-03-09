@@ -20,7 +20,7 @@
           <%= link_to "All Favo Place Check", favo_images_path %>
         </li>
         <li>
-          <%= link_to "My Page", user_path(current_user.id) %>
+          <%= link_to "My Page #{current_user.name}", user_path(current_user.id) %>
         </li>
         <li>
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
