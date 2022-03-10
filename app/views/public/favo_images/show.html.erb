@@ -8,6 +8,7 @@
     <p>投稿日：<%= @favo_image.created_at.strftime('%Y/%m/%d') %></p>
     <% if @favo_image.user_id == current_user.id %>
       <%= link_to "削除", favo_image_path(@favo_image.id), method: :delete %>
+      <%= link_to "編集", edit_favo_image_path(@favo_image.id) %>
     <% end %>
     <% if @favo_image.favorited_by?(current_user) %>
     <p>
