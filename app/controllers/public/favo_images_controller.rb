@@ -6,8 +6,11 @@ class Public::FavoImagesController < ApplicationController
   def create
     @favo_image = FavoImage.new(favo_image_params)
     @favo_image.user_id = current_user.id
-    @favo_image.save
-    redirect_to favo_images_path
+    if @favo_image.save
+      redirect_to favo_images_path
+    else
+      render:new
+    end
   end
 
   def index

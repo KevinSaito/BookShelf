@@ -1,4 +1,12 @@
 <h1>新規投稿画面</h1>
+<% if @favo_image.errors.any? %>
+  <%= @favo_image.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @post_image.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_with model:@favo_image do |f| %>
   <p>画像投稿</p>
   <%= f.file_field :image,accept: "image/*" %>
