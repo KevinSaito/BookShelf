@@ -14,6 +14,7 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
+            <a class="navbar-brand p-3" href="/"><i class="fa-solid fa-location-crosshairs"></i>Favo Place</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -50,9 +51,30 @@
       <%= yield %>
     </main>
 
-    <footer>
-
-    </footer>
+    <div class="container">
+      <footer class="pb-3 my-4 nav-bg">
+        <div class="footer-bg pt-3">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><%= link_to "Favo Place", root_path, class: 'nav-link px-2 text-black nav-item' %></li>
+          <li class="nav-item"><%= link_to "About", homes_about_path, class: 'nav-link px-2 text-black' %></li>
+          <li class="nav-item my-2">
+            <%= link_to "#", class: 'text-decoration-none insta' do %>
+            <i class="fa-brands fa-instagram fa-lg px-2"></i>
+            <% end %>
+            <%= link_to "#", class: 'text-decoration-none' do %>
+            <i class="twitter fa-brands fa-twitter fa-lg px-2"></i>
+            <% end %>
+            <%= link_to "#", class: 'text-decoration-none fb-square' do %>
+            <i class="fa-brands fa-facebook-square fa-lg px-2"></i>
+            <% end %>
+          </li>
+        </ul>
+        </div>
+        <div class="nav-bg">
+          <p class="text-center text-black">© 2022 Favo Place</p>
+        </div>
+      </footer>
+    </div>
 
   </body>
 </html>
