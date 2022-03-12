@@ -10,30 +10,49 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Post Favo", new_favo_image_path %>
-        </li>
-        <li>
-          <%= link_to "All Favo Place Check", favo_images_path %>
-        </li>
-        <li>
-          <%= link_to "My Page #{current_user.name}", user_path(current_user.id) %>
-        </li>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-      <% end %>
+  <body class = "d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li class = "nav-item">
+                  <%= link_to "New post", new_favo_image_path, class:'nav-link text-info' %>
+                </li>
+                <li class = "nav-item">
+                  <%= link_to "Find place", favo_images_path, class:'nav-link text-info' %>
+                </li>
+                <li class = "nav-item">
+                  <%= link_to "I'm #{current_user.name}", user_path(current_user.id), class:'nav-link text-info' %>
+                </li>
+                <li class = "nav-item">
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete, class:'nav-link text-info' %>
+                </li>
+              <% else %>
+                <li class = "nav-item">
+                  <%= link_to "Log in", new_user_session_path, class:'nav-link text-info' %>
+                </li>
+                <li class = "nav-item">
+                  <%= link_to "Sign up", new_user_registration_path, class:'nav-link text-info' %>
+                </li>
+              <% end %>
+              </ul>
+            </div>
+        </div>
+    </div>
     </header>
-    <%= yield %>
+    <main class = "mb-auto">
+      <%= yield %>
+    </main>
+
+    <footer>
+
+    </footer>
+
   </body>
 </html>
