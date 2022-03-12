@@ -23,13 +23,13 @@
               <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li class = "nav-item">
-                  <%= link_to "New post", new_favo_image_path, class:'nav-link text-info' %>
+                  <%= link_to "Post", new_favo_image_path, class:'nav-link text-info' %>
                 </li>
                 <li class = "nav-item">
-                  <%= link_to "Find place", favo_images_path, class:'nav-link text-info' %>
+                  <%= link_to "Find", favo_images_path, class:'nav-link text-info' %>
                 </li>
                 <li class = "nav-item">
-                  <%= link_to "I'm #{current_user.name}", user_path(current_user.id), class:'nav-link text-info' %>
+                  <%= link_to "#{current_user.name}'s page", user_path(current_user.id), class:'nav-link text-info' %>
                 </li>
                 <li class = "nav-item">
                   <%= link_to "Log out", destroy_user_session_path, method: :delete, class:'nav-link text-info' %>
