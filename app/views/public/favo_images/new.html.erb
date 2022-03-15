@@ -8,20 +8,20 @@
           <h6 class="alert-heading">
             <%= @favo_image.errors.count %>件のエラーが発生しました
           </h6>
-          <% @post_image.errors.full_messages.each do |message| %>
+          <% @favo_image.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </ul>
       <% end %>
         <%= form_with model:@favo_image do |f| %>
-          <%= f.file_field :image,accept: "image/*",class:"w-100" %>
+          <%= f.file_field :image,accept: "image/*",class:"w-30" %>
           <div class="input-group mb-3 mt-4">
             <div class="input-group-prepend">
               <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
             </div>
-            <%= f.text_field :location, placeholder:"location(where)",class:"form-control" %>
+            <%= f.text_field :location, placeholder:"スポット",class:"form-control" %>
           </div>
-          <%= f.text_area :caption, rows:"3", placeholder:"caption(explain what is this)",class:"form-control" %>
+          <%= f.text_area :caption, rows:"3", placeholder:"説明",class:"form-control" %>
           <hr>
           <%= f.submit '投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
         <% end %>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   scope module: :public do
     get 'homes/top'
     get 'homes/about'
+    get 'users/:id/favorites' => 'users#favorites', as:'user_favorites'
     resources :favo_images do
       resource :favorites, only:[:create, :destroy]
       resources :favo_comments, only:[:create, :destroy]

@@ -1,18 +1,23 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:show, :edit, :update]
+  before_action :ensure_correct_user, only: [:show, :edit, :update,:favorites]
 
   def show
     @user = User.find(params[:id])
     @favo_images = @user.favo_images.page(params[:page]).reverse_order
-    favorites = Favorite.where(user_id: current_user.id).pluck(:favo_image_id)
-    @favorite_list = FavoImage.find(favorites)
     @following_users = @user.following_user
     @follower_users = @user.follower_user
   end
 
   def index
     @users = User.page(params[:page])
+  end
+
+  def favorites
+    @user = User.find(params[:id])
+    @favo_images = @user.favo_images.page(params[:page]).reverse_order
+    favorites = Favorite.where(user_id: current_user.id).pluck(:favo_image_id)
+    @favorite_list = FavoImage.find(favorites).reverse
   end
 
   def edit

@@ -1,0 +1,32 @@
+<div class="card-list-container py-5">
+  <div class = "text-center">
+    <h3>FavoPlace:<%= @favorite_list.count %></h3>
+  </div>
+  <% if @favorite_list.present? %>
+    <% @favorite_list.each do |favo_image| %>
+      <div class="card w-25 mx-auto mt-4 shadow-lg">
+        <%= link_to favo_image_path(favo_image.id) do %>
+          <%= image_tag favo_image.get_image(500,500),class:'card-img-top' %>
+        <% end %>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4">
+            <%= image_tag favo_image.user.get_profile_image(100,100), class:"mt-3 rounded-circle"; %>
+            </div>
+            <div class="col-8">
+              <p class="card-title">
+                <%= link_to(favo_image_path(favo_image.id), class:"text-dark") do %>
+                <strong><i class="far fa-flag"></i><span> <%= favo_image.location %></span></strong>
+                <% end %>
+              </p>
+              <p class="card-text">説明：<%= favo_image.caption %></p>
+              <span><i class="fas fa-user"></i> By <%= favo_image.user.name %> ｜ </span>
+              <span><%= link_to "#{favo_image.favo_comments.count} コメント", favo_image_path(favo_image.id), class:"text-dark" %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+

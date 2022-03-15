@@ -1,19 +1,30 @@
 <div class="container">
-  <div class="row mt-4">
-    <div class="col-3 m-auto">
-      <h2>プロフィール編集</h2>
-      <%= form_with model: @user do |f| %>
-        <div class = "mb-3">
-        <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
-        </div>
-        <div class = "mb-3">
-        <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %>
-        </div>
-        <div class = "mb-3">
-        <%= f.text_area :introduction, placeholder: "自己紹介" %>
-        </div>
-        <%= f.submit "変更を保存" %>
-      <% end %>
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
+      <h2 class = "text-dark bg-light py-4 mb-0">プロフィール編集</h2>
+      <div class="form-body p-4">
+        <%= form_with model: @user do |f| %>
+          <%= image_tag @user.get_profile_image(60,60),class:"mb-3" %>
+          <div class="input-group my-3">
+            <label>
+            <%= f.file_field :profile_image,accept:"image/*", placeholder: "プロフィール画像", class: "w-100" %>
+            </label>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-user"></i></span>
+            </div>
+            <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"名前"%>
+          </div>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" aria-hidden="true"><i class="fas fa-book"></i></span>
+              </div>
+              <%= f.text_area :introduction, autofocus: true, class:"form-control", id:"inputIntroduction", placeholder:"自己紹介" %>
+          </div>
+          <%= f.submit "変更を保存", class:"btn btn-lg btn-block btn-info mt-5" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

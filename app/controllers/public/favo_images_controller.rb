@@ -14,7 +14,7 @@ class Public::FavoImagesController < ApplicationController
   end
 
   def index
-    @favo_images = FavoImage.page(params[:page])
+    @favo_images = FavoImage.page(params[:page]).order(created_at: :desc)
   end
 
   def show
