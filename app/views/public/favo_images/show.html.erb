@@ -4,7 +4,9 @@
       <div class="card-body">
         <div class="row">
           <div class="col-3">
-            <%=image_tag @favo_image.user.get_profile_image(70,70), class:"mt-3 rounded-circle" %>
+            <%= link_to user_path(@favo_image.user_id) do %>
+              <%= image_tag @favo_image.user.get_profile_image(70,70), class:"mt-3 rounded-circle" %>
+            <% end %>
           </div>
           <div class="col-9">
             <p class="card-title">
@@ -30,8 +32,8 @@
             </span>
           <% end %>
           <% if @favo_image.user == current_user %>
-            <span> ｜ </span><%= link_to "削除", favo_image_path(@favo_image), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
             <span> ｜ </span><%= link_to "編集", edit_favo_image_path(@favo_image.id), class:"btn btn-success" %>
+            <span> ｜ </span><%= link_to "削除", favo_image_path(@favo_image), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
           <% end %>
         </div>
       </div>
