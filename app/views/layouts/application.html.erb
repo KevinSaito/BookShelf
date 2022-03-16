@@ -23,6 +23,14 @@
               <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li class = "nav-item">
+                    <div class="search-form">
+                      <%= form_with url: search_favo_images_path, method: :get, local: true do |f| %>
+                        <%= f.text_field :keyword, value: @keyword, placeholder:"キーワード検索" %>
+                        <%= f.submit "検索", class:"btn btn-outline-success" %>
+                      <% end %>
+                    </div>
+                </li>
+                <li class = "nav-item">
                   <%= link_to "Post", new_favo_image_path, class:'nav-link text-dark' %>
                 </li>
                 <li class = "nav-item">

@@ -15,7 +15,7 @@ class Public::FavoImagesController < ApplicationController
   end
 
   def index
-    @favo_images = FavoImage.page(params[:page]).order(created_at: :desc)
+    @favo_images = FavoImage.page(params[:page]).order(created_at: :desc).per(5)
   end
 
   def show
@@ -37,6 +37,15 @@ class Public::FavoImagesController < ApplicationController
     @favo_image = FavoImage.find(params[:id])
     @favo_image.destroy
     redirect_to favo_images_path
+  end
+
+  def search
+    if params[:keyword].present?
+      @favo_images = FavoImage.all.search(params[:keyword])
+      @keyword = params[:keyword]
+    else
+      @favo_images = FavoImage.all
+    end
   end
 
   private

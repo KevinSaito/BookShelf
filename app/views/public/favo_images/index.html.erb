@@ -1,5 +1,7 @@
-
 <div class="card-list-container py-5">
+  <div class = "text-center">
+    <h3>FindPlace</h3>
+  </div>
   <% @favo_images.each do |favo_image| %>
   <div class="card w-25 mx-auto mt-4 shadow-lg">
     <%= link_to favo_image_path(favo_image.id) do %>

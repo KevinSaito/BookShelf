@@ -1,6 +1,6 @@
   <div　class="post-detail py-5 bg-light">
-    <div class="card w-25 mx-auto mt-4 shadow-lg">
-      <%= image_tag @favo_image.get_image(200,200), class:"card-img-top" %>
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
+      <%= image_tag @favo_image.get_image(500,500), class:"card-img-top" %>
       <div class="card-body">
         <div class="row">
           <div class="col-3">
@@ -32,8 +32,8 @@
             </span>
           <% end %>
           <% if @favo_image.user == current_user %>
-            <span> ｜ </span><%= link_to "編集", edit_favo_image_path(@favo_image.id), class:"btn btn-success" %>
-            <span> ｜ </span><%= link_to "削除", favo_image_path(@favo_image), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
+            <span> ｜ </span><%= link_to "編集", edit_favo_image_path(@favo_image.id), class:"btn btn-outline-success" %>
+            <span> ｜ </span><%= link_to "削除", favo_image_path(@favo_image), class: "btn btn-outline-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
           <% end %>
         </div>
       </div>
@@ -48,7 +48,7 @@
               <p><%= favo_comment.created_at.strftime('%Y/%m/%d') %></p>
               <p><%= favo_comment.comment %></p>
               <% if favo_comment.user == current_user %>
-                <%= link_to "削除", favo_image_favo_comment_path(favo_comment.favo_image, favo_comment), method: :delete, class: "btn btn-danger pull-right" %>
+                <%= link_to "削除", favo_image_favo_comment_path(favo_comment.favo_image, favo_comment), method: :delete, class: "btn btn-outline-danger pull-right" %>
               <% end %>
             </div>
           </div>
@@ -61,7 +61,7 @@
             <label for="exampleFormControlTextarea1">コメントする</label>
             <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
           </div>
-          <%= f.submit "送信する", class:"btn btn-lg btn-info mt-2 float-right" %>
+          <%= f.submit "送信する", class:"btn btn-lg btn-outline-info mt-2 float-right" %>
         <% end %>
       </div>
     </div>

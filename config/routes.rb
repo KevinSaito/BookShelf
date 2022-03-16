@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     get 'homes/about'
     get 'users/:id/favorites' => 'users#favorites', as:'user_favorites'
     resources :favo_images do
+      collection do
+        get:search
+      end
       resource :favorites, only:[:create, :destroy]
       resources :favo_comments, only:[:create, :destroy]
     end
