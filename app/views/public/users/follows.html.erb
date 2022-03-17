@@ -4,17 +4,27 @@
       <h1 class="font-weight-normal mt-5 mb-5">フォロー一覧</h1>
     </div>
     <div class="row justify-content-center">
-      <% @users.each do |user| %>
-      <div class="one-post card w-25 mx-auto mt-4 shadow-lg">
-        <%= link_to user_path(user) do %>
-        <div class="d-flex">
-          <%= image_tag user.get_profile_image(500,500), class: "card-img-top mt-3 rounded-circle" %>
-        </div>
-        <p class="card-text"><%= user.name %></p>
-        <p class="card-text"><%= "#{user.favo_images.count} 投稿" %></p>
-        <% end %>
-      </div>
-      <% end %>
+        <% @users.each do |user| %>
+          <div class="one-post card w-25 mx-auto mt-4 shadow-lg">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+              <%= link_to user_path(user) do %>
+                <div class="d-flex">
+                  <%= image_tag user.get_profile_image(500,500), class: "card-img-top mt-3" %>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class = "card-body">
+                  <p class="card-title"><%= user.name %></p>
+                  <p class="card-text"><%= user.introduction %></p>
+                  <p class="card-text"><%= "#{user.favo_images.count} 投稿" %></p>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            </div>
+            <% end %>
+
     </div>
     <%= paginate @users %>
   </div>

@@ -1,0 +1,28 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.pagination {
+  justify-content: center;
+  font-size: 25px;
+}
+
+.gm-comment {
+  padding: 5px;
+  width: 500px;
+  height: 200px;
+  overflow: scroll;
+
+}
+
+.gm-comment::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+.gm-comment::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
+}
+
+.gm-comment::-webkit-scrollbar-thumb {
+  background-color: #a9a9a9;
+}

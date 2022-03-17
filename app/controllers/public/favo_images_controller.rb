@@ -41,10 +41,10 @@ class Public::FavoImagesController < ApplicationController
 
   def search
     if params[:keyword].present?
-      @favo_images = FavoImage.all.search(params[:keyword])
+      @favo_images = FavoImage.all.search(params[:keyword]).reverse_order
       @keyword = params[:keyword]
     else
-      @favo_images = FavoImage.all
+      @favo_images = FavoImage.all.reverse_order
     end
   end
 

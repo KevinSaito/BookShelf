@@ -15,9 +15,11 @@ class Public::UsersController < ApplicationController
 
   def favorites
     @user = User.find(params[:id])
-    @favo_images = @user.favo_images.page(params[:page]).reverse_order
+    @favo_images = @user.favo_images.page(params[:page])
     favorites = Favorite.where(user_id: current_user.id).pluck(:favo_image_id)
+    # ページネーションのやり方がわからなくなってしまった
     @favorite_list = FavoImage.find(favorites).reverse
+    
   end
 
   def edit
