@@ -1,6 +1,7 @@
 <div class="card-list-container py-5">
   <div class = "text-center">
-    <h3>FavoPlace:<%= @favorite_list.count %></h3>
+    <h3>FavoPlace</h3>
+    <%= paginate @favorite_list %>
   </div>
   <% if @favorite_list.present? %>
     <% @favorite_list.each do |favo_image| %>

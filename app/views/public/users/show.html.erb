@@ -24,7 +24,8 @@
 <div class="card-list-container py-5">
   <div class = "text-center">
     <h6><%= @user.introduction %><h6>
-    <h3>PostPlace:<%= @favo_images.count %></h3>
+    <h3>PostPlace</h3>
+    <%= paginate @favo_images %>
   </div>
   <% @favo_images.each do |favo_image| %>
   <div class="card w-25 mx-auto mt-4 shadow-lg">
