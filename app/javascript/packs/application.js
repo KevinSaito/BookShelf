@@ -13,8 +13,12 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
+require("jquery.jscroll.min.js")
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+$(function() {
+    $('.jscroll').jscroll();    
+});

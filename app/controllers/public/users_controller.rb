@@ -18,10 +18,10 @@ class Public::UsersController < ApplicationController
     @favo_images = @user.favo_images.page(params[:page])
     favorites = Favorite.where(user_id: current_user.id).pluck(:favo_image_id)
     # ページネーションのやり方がわからなくなってしまった
-    @favorite_list = FavoImage.find(favorites).reverse
-    @favorite_lists = Kaminari.paginate_array(favorites).page(params[:page])
-    
-    
+    @favorite_list = FavoImage.page(params[:page]).find(favorites).reverse
+
+
+
   end
 
   def edit
