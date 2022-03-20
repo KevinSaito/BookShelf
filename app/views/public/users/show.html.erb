@@ -1,7 +1,7 @@
 <!-- ユーザーの詳細 -->
 <div class="profile-container w-75 d-flex mx-auto justify-content-around align-items-center border-bottom py-5">
   <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(70,70) %>
+  <%= image_tag @user.get_profile_image(70,70),class:"rounded-circle" %>
   <% if current_user ==@user %>
     <%= link_to "Edit Profile", edit_user_path(@user.id),class:"btn btn-outline-success" %>
   <% end %>
@@ -24,7 +24,7 @@
 <div class="card-list-container py-5">
   <div class = "text-center">
     <h6><%= @user.introduction %><h6>
-    <h3>PostPlace</h3>
+    <h3><strong>Post Place</strong></h3>
     <%= paginate @favo_images %>
   </div>
   <% @favo_images.each do |favo_image| %>
