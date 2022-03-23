@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'homes/about'
     get 'users/:id/favorites' => 'users#favorites', as:'user_favorites'
+    patch 'users/:id/withdraw' => 'users#withdraw', as: 'user_withdraw'
     resources :favo_images do
       collection do
         get:search

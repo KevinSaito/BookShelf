@@ -4,7 +4,7 @@
 <!--ユーザー一覧表示-->
 <div class = "container">
   <div class = "row">
-    <div class = "mx-auto" style="width: 200px;">
+    <div class = "mx-auto" style="width: 300px;">
       <table>
         <thead>
           <tr>
@@ -18,6 +18,11 @@
               <td><%= image_tag user.get_profile_image(100,100),class:"rounded-circle" %></td>
               <td></td>
               <td><%=link_to user.name, user_path(user.id) %></td>
+              <td>
+                <% if current_user.admin? %>
+                  <%= link_to "強制退会", user_withdraw_path(user.id), method: :patch,data: { confirm: "本当に実行しますか?" },class:'btn btn-outline-danger' %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>

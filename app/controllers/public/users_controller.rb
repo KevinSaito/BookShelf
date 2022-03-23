@@ -10,7 +10,13 @@ class Public::UsersController < ApplicationController
   end
 
   def index
-    @users = User.page(params[:page]).order(created_at: :desc).per(6)
+    @users = User.where(is_valid: true).page(params[:page]).order(created_at: :desc).per(6)
+  end
+
+  def withdraw
+    user = User.find(params[:id])
+    user.update(is_valid: false)
+    redirect_to users_path
   end
 
   def favorites
