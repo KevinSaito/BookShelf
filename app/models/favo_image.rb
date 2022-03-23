@@ -1,6 +1,8 @@
 class FavoImage < ApplicationRecord
   has_one_attached :image
-  #validates :image, presence: true
+  validates :image, presence: true
+  validates :location, presence:true
+  validates :caption, presence:true
   belongs_to :user
   has_many :favo_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy

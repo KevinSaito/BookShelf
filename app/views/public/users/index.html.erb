@@ -1,18 +1,28 @@
-<h1>ユーザー一覧</h1>
+<div class = "text-center">
+  <h3 class = "py-4 mb-0"><strong>ユーザー一覧</strong></h3>
+</div>
 <!--ユーザー一覧表示-->
-<table>
-  <thead>
-    <tr>
-      <th>ユーザー名</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= image_tag user.get_profile_image(70,70) %></td>
-        <td><%=link_to user.name, user_path(user.id) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</tabale>
+<div class = "container">
+  <div class = "row">
+    <div class = "mx-auto" style="width: 200px;">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= image_tag user.get_profile_image(100,100),class:"rounded-circle" %></td>
+              <td></td>
+              <td><%=link_to user.name, user_path(user.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 <%= paginate @users %>

@@ -10,7 +10,7 @@ class Public::UsersController < ApplicationController
   end
 
   def index
-    @users = User.page(params[:page])
+    @users = User.page(params[:page]).order(created_at: :desc).per(6)
   end
 
   def favorites
@@ -26,8 +26,11 @@ class Public::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+    if @user.update(user_params)
     redirect_to user_path(@user.id)
+    else
+    render:edit
+    end
   end
 
   def follows

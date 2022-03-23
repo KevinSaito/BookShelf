@@ -2,6 +2,16 @@
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
       <h3 class = "text-dark bg-light py-4 mb-0">Edit My Profile</h3>
+      <% if @user.errors.any? %>
+        <ul class="alert alert-danger" role="alert">
+          <h6 class="alert-heading">
+            <%= @user.errors.count %>件のエラーが発生しました
+          </h6>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <div class="form-body p-4">
         <!--ユーザー編集画面-->
         <%= form_with model: @user do |f| %>

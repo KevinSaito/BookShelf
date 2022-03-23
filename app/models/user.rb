@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name, presence: true
+  validates :introduction, presence: true
+
   has_many :favo_images, dependent: :destroy
   has_many :favo_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -27,7 +30,7 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
-  
+
   def get_profile_image(width, height)
   unless profile_image.attached?
     file_path = Rails.root.join('app/assets/images/no_profile_image.jpg')
