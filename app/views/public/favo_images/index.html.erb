@@ -3,7 +3,7 @@
     <h3><strong>Find Place</strong></h3>
     <%= paginate @favo_images %>
   </div>
-  <div class = "jscroll">
+
     <% @favo_images.each do |favo_image| %>
     <div class="card w-25 mx-auto mt-4 shadow-lg">
       <%= link_to favo_image_path(favo_image.id) do %>
@@ -30,6 +30,5 @@
       </div>
     </div>
     <% end %>
-  </div>
   <%= paginate @favo_images %>
 </div>
