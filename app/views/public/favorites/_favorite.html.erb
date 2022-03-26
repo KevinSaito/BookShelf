@@ -1,3 +1,4 @@
+<!--いいね機能設定-->
 <% if favo_image.favorited_by?(current_user) %>
   <span>
     <%= link_to(favo_image_favorites_path(favo_image), class:"text-dark", method: :delete, remote: true) do %>

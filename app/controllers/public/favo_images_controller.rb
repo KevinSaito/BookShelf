@@ -29,8 +29,11 @@ class Public::FavoImagesController < ApplicationController
 
   def update
     @favo_image = FavoImage.find(params[:id])
-    @favo_image.update(favo_image_params)
-    redirect_to favo_image_path(@favo_image.id)
+    if @favo_image.update(favo_image_params)
+      redirect_to favo_image_path(@favo_image.id)
+    else
+      render:edit
+    end
   end
 
   def destroy
@@ -38,7 +41,7 @@ class Public::FavoImagesController < ApplicationController
     @favo_image.destroy
     redirect_to favo_images_path
   end
-
+  # 写真検索用
   def search
     if params[:keyword].present?
       @favo_images = FavoImage.page(params[:page]).search(params[:keyword]).reverse_order

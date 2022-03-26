@@ -18,9 +18,11 @@
             <span><i class="fas fa-user"></i> By <%= @favo_image.user.name %> ｜ </span>
             <span><i class="fa fa-calendar"></i> <%= @favo_image.created_at.strftime('%Y/%m/%d') %> ｜ </span><br>
             <span><i class="fa fa-comment"></i> <%= link_to "#{@favo_image.favo_comments.count}", favo_image_path(@favo_image.id), class:"text-dark" %> ｜ </span>
+            <!--いいね非同期通信-->
             <span id="favorite_buttons_<%= @favo_image.id %>">
               <%= render "public/favorites/favorite", favo_image: @favo_image %>
             </span>
+            <!--自身のimageのみ削除・編集可能-->
           <% if @favo_image.user == current_user %>
             <span> ｜ </span><%= link_to "編集", edit_favo_image_path(@favo_image.id), class:"btn btn-outline-success" %>
             <span> ｜ </span><%= link_to "削除", favo_image_path(@favo_image), class: "btn btn-outline-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
@@ -28,8 +30,10 @@
         </div>
       </div>
       <hr>
+      <!--コメント閲覧画面-->
       <div class="comments card-text">
         <h4 class="mt-3"><%= @favo_image.favo_comments.count %>件コメント</h4>
+        <!--コメント機能スクロール設定scss-->
         <div class = "gm-comment">
         <% @favo_image.favo_comments.each do |favo_comment| %>
           <div class="media border mb-3">
@@ -38,6 +42,7 @@
             <div class="media-body ml-4 p-4">
               <p><%= favo_comment.created_at.strftime('%Y/%m/%d') %></p>
               <p><%= favo_comment.comment %></p>
+              <!--自分のコメントのみ削除・編集可能-->
               <% if favo_comment.user == current_user %>
                 <%= link_to "削除", favo_image_favo_comment_path(favo_comment.favo_image, favo_comment), method: :delete, class: "btn btn-outline-danger pull-right" %>
               <% end %>
@@ -47,6 +52,7 @@
         </div>
       </div>
       <hr>
+      <!--コメント投稿機能-->
       <div class="new-comment card-text">
         <%= form_with(model:[@favo_image, @favo_comment]) do |f| %>
           <div class="form-group">

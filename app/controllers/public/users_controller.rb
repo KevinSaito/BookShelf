@@ -12,7 +12,7 @@ class Public::UsersController < ApplicationController
   def index
     @users = User.where(is_valid: true).page(params[:page]).order(created_at: :desc).per(6)
   end
-
+  # 強制退会トリガー用記述
   def withdraw
     user = User.find(params[:id])
     user.update(is_valid: false)
