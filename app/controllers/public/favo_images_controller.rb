@@ -56,6 +56,7 @@ class Public::FavoImagesController < ApplicationController
   def favo_image_params
     params.require(:favo_image).permit(:location, :caption, :image, :user_id)
   end
+  # 編集ページ等他者が覗けないように
   def ensure_correct_user
     @favo_image = FavoImage.find(params[:id])
     unless @favo_image.user == current_user

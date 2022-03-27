@@ -18,7 +18,7 @@ class FavoImage < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-  
+  # DB検索用の設定
   def self.search(keyword)
     where(["location like? OR caption like?", "%#{keyword}%", "%#{keyword}%"])
   end

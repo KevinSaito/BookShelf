@@ -1,11 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-
+// ページネーション中央よせ
 .pagination {
   justify-content: center;
   font-size: 25px;
 }
-
+// スクロール機能設定
 .gm-comment {
   padding: 5px;
   width: 700px;

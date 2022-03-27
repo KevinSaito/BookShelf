@@ -13,6 +13,7 @@
               <td></td>
               <td><%=link_to user.name, user_path(user.id) %></td>
               <td>
+                <!--管理者のみ退会機能が表示され、強制退会-->
                 <% if current_user.admin? %>
                   <%= link_to "強制退会", user_withdraw_path(user.id), method: :patch,data: { confirm: "本当に実行しますか?" },class:'btn btn-outline-danger' %>
                 <% end %>
