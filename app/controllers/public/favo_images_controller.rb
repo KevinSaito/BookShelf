@@ -14,6 +14,7 @@ class Public::FavoImagesController < ApplicationController
     end
   end
 
+  # ページネーションで表示
   def index
     @favo_images = FavoImage.page(params[:page]).order(created_at: :desc).per(5)
   end
