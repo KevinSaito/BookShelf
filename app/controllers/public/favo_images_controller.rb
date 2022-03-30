@@ -1,5 +1,6 @@
 class Public::FavoImagesController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :favorites]
+  
   def new
     @favo_image = FavoImage.new
   end
@@ -13,7 +14,7 @@ class Public::FavoImagesController < ApplicationController
       render:new
     end
   end
-
+  
   # ページネーションで表示
   def index
     @favo_images = FavoImage.page(params[:page]).order(created_at: :desc).per(5)
