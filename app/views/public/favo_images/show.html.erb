@@ -1,6 +1,6 @@
   <div　class="post-detail py-5 bg-light">
     <div class="card w-50 mx-auto mt-4 shadow-lg">
-      <%= image_tag @favo_image.get_image(500,500), class:"card-img-top" %>
+      <%= image_tag @favo_image.image, class:"card-img-top" if @favo_image.image.attached? %>
       <div class="card-body">
         <div class="row">
           <div class="col-3">
