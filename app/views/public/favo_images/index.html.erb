@@ -23,6 +23,7 @@
               <% end %>
             </p>
             <p class="card-text">説明：<%= favo_image.caption %></p>
+            <p class="sentiment-score">本文の感情分析スコア[<%= favo_image.score %>]</p>
             <span><i class="fas fa-user"></i> By <%= favo_image.user.name %> ｜ </span>
             <span><%= link_to "#{favo_image.favo_comments.count} コメント", favo_image_path(favo_image.id), class:"text-dark" %></span>
           </div>

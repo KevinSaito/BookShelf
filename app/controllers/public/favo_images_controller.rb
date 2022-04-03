@@ -1,12 +1,13 @@
 class Public::FavoImagesController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :favorites]
-  
+
   def new
     @favo_image = FavoImage.new
   end
 
   def create
     @favo_image = FavoImage.new(favo_image_params)
+    @favo_image.score = Language.get_data(favo_image_params[:caption])
     @favo_image.user_id = current_user.id
     if @favo_image.save
       redirect_to favo_images_path
@@ -14,7 +15,7 @@ class Public::FavoImagesController < ApplicationController
       render:new
     end
   end
-  
+
   # ページネーションで表示
   def index
     @favo_images = FavoImage.page(params[:page]).order(created_at: :desc).per(5)
@@ -31,6 +32,7 @@ class Public::FavoImagesController < ApplicationController
 
   def update
     @favo_image = FavoImage.find(params[:id])
+    @favo_image.score = Language.get_data(favo_image_params[:caption])
     if @favo_image.update(favo_image_params)
       redirect_to favo_image_path(@favo_image.id)
     else

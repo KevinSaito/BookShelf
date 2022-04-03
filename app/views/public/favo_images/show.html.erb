@@ -15,6 +15,7 @@
               <% end %>
             </p>
             <p class="card-title">説明：<%= @favo_image.caption %></p>
+            <p class="sentiment-score">本文の感情分析スコア[<%= @favo_image.score %>]</p>
             <span><i class="fas fa-user"></i> By <%= @favo_image.user.name %> ｜ </span>
             <span><i class="fa fa-calendar"></i> <%= @favo_image.created_at.strftime('%Y/%m/%d') %> ｜ </span><br>
             <span><i class="fa fa-comment"></i> <%= link_to "#{@favo_image.favo_comments.count}", favo_image_path(@favo_image.id), class:"text-dark" %> ｜ </span>
