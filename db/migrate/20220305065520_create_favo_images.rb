@@ -5,7 +5,7 @@ class CreateFavoImages < ActiveRecord::Migration[6.1]
       t.text :caption
       t.references :user, foreign_key: true
       
-
+      
       t.timestamps
     end
   end
