@@ -1,4 +1,5 @@
 class Notification < ApplicationRecord
+  # public配下？
   default_scope->{order(created_at: :desc)}
 
   belongs_to :favo_iamge, optional: true
