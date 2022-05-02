@@ -6,4 +6,23 @@ ja:
       previous: "&lsaquo; 前のページ"
       next: "次のページ &rsaquo;"
       truncate: "..."
-  
+  errors:
+    messages:
+      not_saved: '登録できませんでした'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'を入力してください'
+            password:
+              blank: 'を入力してください'
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+        introduction: '自己紹介'
